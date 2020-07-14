@@ -1,24 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import Header from './components/Header';
+import Baitaplayout from './components/Baitaplayout/Baitaplayout';
+import Baitaplayout2 from './components/Baitaplayout2/Baitaplayout2';
+import DataBinding from './DataBinding/DataBinding';
+//nội dung react function chứa trong lệnh return của hàm 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     {/* hello cybersoft */}
+     {/* <Header></Header> */}
+     {/* <Header></Header> */}
+     {/* <Header/> */}
+     {/* <Baitaplayout/> */}
+     {/* <Baitaplayout2/> */}
+     <DataBinding/>
     </div>
   );
 }
