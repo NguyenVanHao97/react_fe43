@@ -9,6 +9,9 @@ import EventBinding from './EventBinding/EventBinding';
 import RenderWithState from './RenderWithState/RenderWithState';
 import BaiTapChonXe from './RenderWithState/BaiTapChonXe';
 import RenDerWithMap from './RenderWithState/RenDerWithMap/RenDerWithMap';
+import ExampleGlasses from './RenderWithState/ExampleGlasses';
+import DemoProps from './Props/DemoProps';
+import FunctionProps from './Props/FunctionProps';
 //nội dung react function chứa trong lệnh return của hàm 
 function App() {
   return (
@@ -17,15 +20,18 @@ function App() {
      {/* <Header></Header> */}
      {/* <Header></Header> */}
      {/* <Header/> */}
-     {/* <Baitaplayout/> */}
+     <Baitaplayout/>
      {/* <Baitaplayout2/> */}
      {/* <DataBinding/> */}
      {/* <EventBinding/> */}
     {/* <RenderWithStyle/> */}
     {/* <RenderWithState/> */}
     {/* <RenderWithState/> */}
-    <BaiTapChonXe/>
-    <RenDerWithMap/>
+    {/* <BaiTapChonXe/> */}
+    {/* <RenDerWithMap/> */}
+    {/* <ExampleGlasses/> */}
+    {/* <DemoProps/> */}
+    {/* <FunctionProps/> */}
     </div>
   );
 }
