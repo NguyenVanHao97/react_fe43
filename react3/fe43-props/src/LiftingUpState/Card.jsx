@@ -13,15 +13,20 @@ export default class Card extends Component {
                     <td>{item.tenSP}</td>
                     <td>{item.giaBan}</td>
                     <td>
-                        <button className="btn btn-info">-</button><span className="mx-2">{item.soLuong}</span><button className="btn btn-info">+</button>
+                        <button onClick={() => { this.props.tangGiamSoLuong(item.maSP, false) }} className="btn btn-info">-</button><span className="mx-2">{item.soLuong}</span><button onClick={() => { this.props.tangGiamSoLuong(item.maSP, true) }} className="btn btn-info">+</button>
                     </td>
-                    <td>17100000$</td>
+                    <td>{item.giaBan * item.soLuong}</td>
                     <td><button className="btn btn-danger" onClick={() => {
                         this.props.handleDelete(item);
                     }}>xóa</button></td>
                 </tr>
             )
         })
+    }
+    tinhTongTien = () => {
+        return this.props.cardList.reduce((tongTien, spGH, index) => {
+            return tongTien += spGH.soLuong * spGH.giaBan;
+        }, 0).toLocaleString();
     }
     render() {
         return (
@@ -45,13 +50,13 @@ export default class Card extends Component {
                             {this.renderListCard()}
                         </tbody>
                         <tfoot>
+                            {/* <td colSpan="5"></td> */}
+                        </tfoot>
+                        <tfoot>
                             <tr>
-                                <td />
-                                <td />
-                                <td />
-                                <td />
-                                <td />
-                                <td>32300000</td>
+                                <td colSpan="5"></td>
+                                <td>Tong tien</td>
+                                <td>{this.tinhTongTien()}</td>
                                 {/* <td /> */}
                             </tr>
                         </tfoot>

@@ -9,6 +9,34 @@ export default class ExampleCard extends Component {
         ProSelected: null,
         cardList: [],
     };
+    // xử lý nút tăng giảm số lượng
+
+    tangGiamSoLuong = (maSP, tangGiam) => {
+        //tăng là true giảm là false 
+        // tìm ra sản phẩm chứa maSP = VỚI maSP nút tăng giảm số lượng
+
+        // console.log('maSP', maSP)
+        // setState làm tăng giảm số lượng
+        // console.log('tang giam', tangGiam)
+        let gioHangCapNhat = [...this.state.cardList];
+
+        let index = gioHangCapNhat.findIndex(spGioHang => spGioHang.maSP === maSP);
+        if (index !== -1) {
+            if (tangGiam) {
+                gioHangCapNhat[index].soLuong += 1;
+            } else {
+                if (gioHangCapNhat[index].soLuong > 1) {
+                    gioHangCapNhat[index].soLuong -= 1;
+                } else {
+                    alert('số lượng tối thiểu = 1');
+                }
+            }
+        }
+        //set state làm thay đổi số lượng
+        this.setState({
+            cardList: gioHangCapNhat
+        });
+    }
     handleBuy = (card) => {
         // let 
         // let cardUpdate = this.state.cardList.push(card);
@@ -59,7 +87,7 @@ export default class ExampleCard extends Component {
         return (
             <div>
                 <div className="container">
-                    <Card cardList={this.state.cardList} handleDelete={this.handleDelete} />
+                    <Card tangGiamSoLuong={this.tangGiamSoLuong} cardList={this.state.cardList} handleDelete={this.handleDelete} />
                     <ProductList handleSelectPro={this.handleSelectPro} proList={this.state.proList}
                         handleBuy={this.handleBuy} />
                     {
