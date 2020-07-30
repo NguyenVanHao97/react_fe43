@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { tangGiamActions } from '../../redux/actions/GameBauCuaActions'
 import GameBauCua from '..';
 
 class DanhSachCuoc extends Component {
@@ -43,14 +44,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         tangGiamMucCuoc: (ma, tangGiam) => {
-            const actions = {
-                type: "TANG_GIAM",
-                ma: ma,
-                tangGiam: tangGiam,
-            };
-            dispatch(actions)
+            dispatch(tangGiamActions(ma, tangGiam));
         },
-
+        // dispatch(actions)
     };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(DanhSachCuoc)

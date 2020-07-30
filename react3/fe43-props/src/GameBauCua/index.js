@@ -5,7 +5,7 @@ import XucXac from './XucXac'
 import { connect } from 'react-redux'
 class GameBauCua extends Component {
     render() {
-        const { tongTien } = this.props;
+        const { tongTien, choiGame } = this.props;
         return (
 
             <div className="bau-cua">
@@ -13,7 +13,10 @@ class GameBauCua extends Component {
                     <div className="d-flex justify-content-between align-items-center">
                         <div className="bau-cua__tien font-weight-bold">Tổng Tiền : {tongTien}$</div>
                         <h2 className="text-center text-danger">Bầu Cua</h2>
-                        <div><btn className="btn btn-info">Chơi Game</btn></div>
+                        <div><btn className="btn btn-info" onClick={() => {
+                            // this.props.choiGame();
+                            choiGame();
+                        }} >Chơi Game</btn></div>
                     </div>
                     <div className="row">
                         <div className="col-md-12 col-lg-7">
@@ -36,4 +39,14 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, null)(GameBauCua)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        choiGame: () => {
+            const actions = {
+                type: "CHOI_GAME",
+            };
+            dispatch(actions);
+        },
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(GameBauCua)
